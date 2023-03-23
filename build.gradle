@@ -1,0 +1,44 @@
+apply plugin: 'java-library'
+apply plugin: 'net.serenity-bdd.aggregator'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url 'https://jitpack.io'
+    }
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url 'https://jitpack.io'
+        }
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.80")
+    }
+}
+
+dependencies {
+    implementation 'net.serenity-bdd:serenity-junit:2.0.80'
+    implementation 'net.serenity-bdd:serenity-cucumber:1.9.45'
+    implementation 'net.serenity-bdd:serenity-core:2.0.80'
+    implementation 'org.slf4j:slf4j-simple:1.7.7'
+    implementation group: 'net.serenity-bdd', name: 'serenity-screenplay-rest', version: '2.0.80'
+    implementation 'net.serenity-bdd:serenity-rest-assured:2.0.80'
+    testImplementation 'junit:junit:4.12'
+    implementation group: 'net.serenity-bdd', name: 'serenity-screenplay', version: '2.0.80'
+}
+
+test {
+    ignoreFailures = true
+}
+
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
