@@ -12,10 +12,10 @@ import static org.hamcrest.Matchers.*;
 
 public class CrearUsuarioStepDefinitions {
 
-    @Given("queremos crear un usuario")
-    public void queremosCrearUnUsuario() {
+    @Given("queremos crear un usuario {string} {string}")
+    public void queremosCrearUnUsuario(String name, String job) {
         OnStage.theActorInTheSpotlight().attemptsTo(
-                CrearUsuario.then()
+                CrearUsuario.then(name, job)
         );
     }
 
@@ -27,6 +27,7 @@ public class CrearUsuarioStepDefinitions {
                                 .body("$", hasKey("createdAt"))
                 )
         );
+
 
         OnStage.theActorInTheSpotlight().should(
                 seeThat("validando creacion", new PathResponseQuestion("createdAt"), equalTo(true))

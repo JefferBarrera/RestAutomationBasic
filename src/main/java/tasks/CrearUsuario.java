@@ -8,12 +8,21 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 
 public class CrearUsuario implements Task {
+
+    private final String name;
+    private final String job;
+
+    public CrearUsuario(String name, String job) {
+        this.name = name;
+        this.job = job;
+    }
+
     @Override
     public <T extends Actor> void performAs(T actor) {
         String requestBody =
                 "{" +
-                "    \"name\": \"morpheus\"," +
-                "    \"job\": \"leader\"" +
+                    "\"name\":" + name + "," +
+                    "\"job\":" + job +
                 "}";
 
         actor.attemptsTo(
@@ -25,7 +34,7 @@ public class CrearUsuario implements Task {
         );
     }
 
-    public static Performable then() {
-        return Instrumented.instanceOf(CrearUsuario.class).withProperties();
+    public static Performable then(String name, String job) {
+        return Instrumented.instanceOf(CrearUsuario.class).withProperties(name, job);
     }
 }
