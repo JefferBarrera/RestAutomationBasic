@@ -23,7 +23,7 @@ public class ObtenerListaUsuariosStepDefinitions {
 
     @Before
     public void actorSetup() {
-        String restApiUrl = environmentVariables.optionalProperty("restapi.baseUrl").get();
+        String restApiUrl = environmentVariables.getProperty("restapi.baseUrl");
         OnStage.setTheStage(new OnlineCast());
         OnStage.theActorCalled("Sam").whoCan(CallAnApi.at(restApiUrl));
         SerenityRest.filters(new RequestLoggingFilter(), new ResponseLoggingFilter(), new ErrorLoggingFilter());
