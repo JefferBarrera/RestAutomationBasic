@@ -10,6 +10,7 @@ import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
+import net.thucydides.core.environment.SystemEnvironmentVariables;
 import net.thucydides.core.util.EnvironmentVariables;
 import questions.ResponseCodeQuestion;
 
@@ -19,10 +20,9 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class ObtenerListaUsuariosStepDefinitions {
 
-    private EnvironmentVariables environmentVariables;
-
     @Before
     public void actorSetup() {
+        EnvironmentVariables environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();
         String restApiUrl = environmentVariables.getProperty("restapi.baseUrl");
         OnStage.setTheStage(new OnlineCast());
         OnStage.theActorCalled("Sam").whoCan(CallAnApi.at(restApiUrl));
