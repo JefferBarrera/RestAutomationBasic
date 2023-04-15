@@ -31,7 +31,7 @@ public class ObtenerListaUsuariosStepDefinitions {
 
     @Given("queremos obtener lista de usuarios")
     public void queremosObtenerListaDeUsuarios() {
-        OnStage.theActorInTheSpotlight().attemptsTo(
+        OnStage.theActorInTheSpotlight().wasAbleTo(
                 tasks.ObtenerListaUsuarios.then()
         );
     }

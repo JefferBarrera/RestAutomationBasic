@@ -14,7 +14,7 @@ public class CrearUsuarioStepDefinitions {
 
     @Given("queremos crear un usuario {string} {string}")
     public void queremosCrearUnUsuario(String name, String job) {
-        OnStage.theActorInTheSpotlight().attemptsTo(
+        OnStage.theActorInTheSpotlight().wasAbleTo(
                 CrearUsuario.then(name, job)
         );
     }

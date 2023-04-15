@@ -12,7 +12,7 @@ public class ObtenerUsuarioStepDefinitions {
 
     @Given("queremos obtener un usuario con id {int}")
     public void queremosObtenerUnUsuarioConId(int id) {
-        OnStage.theActorInTheSpotlight().attemptsTo(
+        OnStage.theActorInTheSpotlight().wasAbleTo(
                 ObtenerUsuario.then(id)
         );
     }
