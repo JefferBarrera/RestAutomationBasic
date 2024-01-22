@@ -21,9 +21,9 @@ public class CrearUsuario implements Task {
     public <T extends Actor> void performAs(T actor) {
         String requestBody =
                 "{" +
-                    "\"name\":" + name + "," +
-                    "\"job\":" + job +
-                "}";
+                        "\"name\":" + name + "," +
+                        "\"job\":" + job +
+                        "}";
 
         actor.attemptsTo(
                 Post.to("/users").with(

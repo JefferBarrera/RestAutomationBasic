@@ -39,12 +39,16 @@ public class ObtenerListaUsuariosStepDefinitions {
     @Then("validamos status code {int}")
     public void validamosStatusCode(int statusCode) {
         OnStage.theActorInTheSpotlight().should(
-                seeThat("status code", new ResponseCodeQuestion(), equalTo(statusCode))
+                seeThat(
+                        "status code", new ResponseCodeQuestion(), equalTo(statusCode)
+                )
         );
 
         OnStage.theActorInTheSpotlight().should(
-                seeThatResponse("status code",
-                        response -> response.statusCode(statusCode))
+                seeThatResponse(
+                        "status code",
+                        response -> response.statusCode(statusCode)
+                )
         );
     }
 }

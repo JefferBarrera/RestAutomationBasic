@@ -26,7 +26,6 @@ public class ObtenerUsuario implements Task {
     }
 
     public static Performable then(int id) {
-        return Instrumented.instanceOf(ObtenerUsuario.class)
-                .withProperties(id);
+        return Instrumented.instanceOf(ObtenerUsuario.class).withProperties(id);
     }
 }

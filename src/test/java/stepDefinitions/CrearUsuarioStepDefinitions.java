@@ -22,7 +22,8 @@ public class CrearUsuarioStepDefinitions {
     @And("validamos creacion del usuario")
     public void validamosCreacionDelUsuario() {
         OnStage.theActorInTheSpotlight().should(
-                seeThatResponse("validando creacion",
+                seeThatResponse(
+                        "validando creacion",
                         response -> response
                                 .body("$", hasKey("createdAt"))
                 )
@@ -30,7 +31,9 @@ public class CrearUsuarioStepDefinitions {
 
 
         OnStage.theActorInTheSpotlight().should(
-                seeThat("validando creacion", new PathResponseQuestion("createdAt"), equalTo(true))
+                seeThat(
+                        "validando creacion", new PathResponseQuestion("createdAt"), equalTo(true)
+                )
         );
     }
 }
