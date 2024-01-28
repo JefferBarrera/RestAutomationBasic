@@ -29,7 +29,6 @@ public class CrearUsuarioStepDefinitions {
                 )
         );
 
-
         OnStage.theActorInTheSpotlight().should(
                 seeThat(
                         "validando creacion", new PathResponseQuestion("createdAt"), equalTo(true)
